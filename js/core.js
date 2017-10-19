@@ -1,6 +1,10 @@
+//write complex structure for multiple shells 
+// Each shell will have electrons moving at different speed's
+
 let particles = [];
 let shell_offset = 0;
 let orbital_speed = 0.05;
+
 
 function setup(){
 
