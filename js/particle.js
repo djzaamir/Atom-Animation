@@ -1,10 +1,10 @@
 class Particle {
 
-    constructor(color ,  radius , orbital_speed , scale){
+    constructor(color ,  radius , orbital_speed , scale , start_angle){
      this.x;
      this.y; 
      this.radius =  radius;
-     this.angle = 0;
+     this.angle = start_angle;
      this.scale = scale;
      this.orbital_speed = orbital_speed;
      this.color = color;
@@ -12,8 +12,19 @@ class Particle {
 
     //particle method's
     draw(){
+        //draw electron
         fill(this.color);
         ellipse(this.x , this.y , this.radius ,  this.radius);
+
+
+        //calc radius of orbit
+        //SOH
+        let R = 10 * (1/this.x);
+        stroke("white");
+        noFill();
+        //draw orbit
+        ellipse(0,0 , R , R);
+        
     }
 
     //updater
@@ -29,7 +40,6 @@ class Particle {
          this.x *= this.scale;
          this.y *= this.scale;
 
-          console.log(this.x +" :  "+ this.y);
           //increment angle , for orbiral motion
           this.angle += this.orbital_speed;
     }
