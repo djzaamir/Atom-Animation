@@ -5,35 +5,49 @@ let shell_count = 3;
 let electron_structure = [
     9,6,3  //Numbers of electrons at each shell  
 ];
-let electron_container = []; 
+let electron_container = []; //Main array which will contain electrons
 
 //Useful in electron proper positioning and speed
 let shell_offset = 0;
 let orbital_speed = 0.03;
 
 
+//Orbital Paths
+let orbital_paths = [];
+
+
 function setup(){
 
   color("black");
   createCanvas(window.innerWidth ,window.innerHeight);
-   
-  //for each shell
+  
+  //Setting up orbital paths
+
+  //Setting up electron structure
+  {
+    //for each shell
    for (var i = 0; i < shell_count; i++) {
+    
+         let start_angle = 0;
+          //put appropriate no of electrons
+          for(let j = 0 ; j < electron_structure[i] ; j++){
+    
+            electron_container.push(new Particle("white" , 30 , orbital_speed ,4 + shell_offset , start_angle));
+            start_angle += 10; //change for next particle
+          }
+          orbital_speed -= 0.01;
+          shell_offset += 2.5 ; //adjust shell offset
+       }
+  }
 
-     let start_angle = 0;
-      //put appropriate no of electrons
-      for(let j = 0 ; j < electron_structure[i] ; j++){
 
-        electron_container.push(new Particle("white" , 30 , orbital_speed ,4 + shell_offset , start_angle));
-        start_angle += 10; //change for next particle
-      }
-      orbital_speed -= 0.01;
-      shell_offset += 2.5 ; //adjust shell offset
-   }
 }
 function draw(){
     background("black");
-    
+   
+       //Render Orbital paths
+
+      //Render electrons
       electron_container.forEach(function(p){
         push();
         translate(width/2, height/2);
