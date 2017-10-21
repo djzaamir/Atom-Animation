@@ -3,7 +3,7 @@
 
 let shell_count = 3;
 let electron_structure = [
-    10,10,10  //Numbers of electrons at each shell  
+    10,20,40  //Numbers of electrons at each shell  
 ];
 let electron_container = []; //Main array which will contain electrons
 
@@ -25,7 +25,7 @@ function setup(){
   //Setting up orbital paths
   {
     for(let i = 0 ; i < shell_count ; i++){
-      orbital_paths.push(new Orbital_path(shell_offset , "white"));
+      orbital_paths.push(new Orbital_path(shell_offset , "yellow"));
       shell_offset += shell_offset;
     }
     //reset shell offset for electrons

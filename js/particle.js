@@ -19,6 +19,8 @@ class Particle {
     //particle method's
     draw(){
         //draw electron
+        stroke("red");
+        line(0,0 , this.x , this.y);
         fill(this.color);
         ellipse(this.x , this.y , this.radius ,  this.radius);
     }
