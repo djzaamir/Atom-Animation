@@ -1,5 +1,11 @@
 class Particle {
-
+    /**
+     * color
+     * Radius of the Ellipse to be drawn as electron
+     * Orbital-Speed , rotational speed which will change the angle
+     * Scale ,  will be used to put electrons at different shell levels
+     * Start-angle ,  will be used to put electrons at different places in the same shell
+     */
     constructor(color ,  radius , orbital_speed , scale , start_angle){
      this.x;
      this.y; 
@@ -15,16 +21,6 @@ class Particle {
         //draw electron
         fill(this.color);
         ellipse(this.x , this.y , this.radius ,  this.radius);
-
-
-        //calc radius of orbit
-        //SOH
-        let R = 10 * (1/this.x);
-        stroke("white");
-        noFill();
-        //draw orbit
-        ellipse(0,0 , R , R);
-        
     }
 
     //updater
