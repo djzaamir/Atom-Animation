@@ -8,7 +8,7 @@ let electron_structure = [
 let electron_container = []; //Main array which will contain electrons
 
 //Useful in electron proper positioning and speed
-let original_shell_offset = 70; //So we can offset paths and then electrons properly
+let original_shell_offset = 100; //So we can offset paths and then electrons properly
 let shell_offset = original_shell_offset;
 let orbital_speed = 0.03;
 
@@ -29,7 +29,10 @@ function setup(){
       shell_offset += shell_offset;
     }
     //reset shell offset for electrons
-    shell_offset = original_shell_offset;
+    //for some reasons i have to half the original shell offset value
+    //before using it in electrons
+    //
+    shell_offset = original_shell_offset /2;
   }
 
   //Setting up electron structure
@@ -68,7 +71,7 @@ function draw(){
         translate(width/2, height/2);
         p.update();
         p.draw();
-       pop();
+          pop();
       });
 
   }
