@@ -9,7 +9,8 @@ class Orbital_path {
     }
 
     draw(){
-        fill(this.color);
+        stroke(this.color);
+        noFill();
         ellipse(0 , 0 , this.orbit_radius , this.orbit_radius);
     }
 }
